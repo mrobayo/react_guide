@@ -6,7 +6,7 @@ import CounterOutput from '../../components/CounterOutput/CounterOutput';
 import * as actionTypes from '../../store/actions';
 
 class Counter extends Component {
-    state = {
+    /* state = {
         counter: 0
     }
 
@@ -25,7 +25,7 @@ class Counter extends Component {
                 this.setState( ( prevState ) => { return { counter: prevState.counter - value } } )
                 break;
         }
-    }
+    } */
 
     render () {
         return (
