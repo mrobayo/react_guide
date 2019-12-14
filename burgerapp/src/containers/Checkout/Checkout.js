@@ -6,18 +6,15 @@ import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSumm
 import ContactData from './ContactData/ContactData';
 import * as actions from '../../store/actions/index';
 
-class Checkout extends Component {
-
+class Checkout extends Component { 
+    
+    /* 
     state = {
         ingredients: null, 
         totalPrice: 0
     }
     
     componentWillMount() {
-        this.props.onInitPurchase();
-    }
-
-    /* componentWillMount() {
         const query = new URLSearchParams(this.props.location.search);
         const ingredients = {};
         let price = 0;
@@ -76,9 +73,4 @@ const mapStateTopProps = state => {
     }
 }
 
-const mapDispatchTopProps = dispatch => {
-    return {
-        onInitPurchase: () => dispatch(actions.purchaseInit())
-    }
-}
-export default connect(mapStateTopProps, mapDispatchTopProps)( Checkout );
+export default connect(mapStateTopProps)( Checkout );
