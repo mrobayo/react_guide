@@ -31,7 +31,7 @@ class BurgerBuilder extends Component {
         purchasing: false
         //loading: false,
         //error: false
-    }
+    };
 
     componentDidMount() {        
         console.log(this.props);
@@ -69,7 +69,7 @@ class BurgerBuilder extends Component {
         const newPrice = oldPrice + priceAddition;
         this.setState( { totalPrice: newPrice, ingredients: updatedIngredients } );
         this.updatePurchaseState(updatedIngredients);
-    }
+    };
 
     removeIngredientHandler = ( type ) => {
         const oldCount = this.state.ingredients[type];
@@ -86,15 +86,15 @@ class BurgerBuilder extends Component {
         const newPrice = oldPrice - priceDeduction;
         this.setState( { totalPrice: newPrice, ingredients: updatedIngredients } );
         this.updatePurchaseState(updatedIngredients);
-    }
+    };
 
     purchaseHandler = () => {
         this.setState({purchasing: true});
-    }
+    };
 
     purchaseCancelHandler = () => {
         this.setState({purchasing: false});
-    }
+    };
 
     purchaseContinueHandler = () => {
         // alert('You continue!');
@@ -113,7 +113,7 @@ class BurgerBuilder extends Component {
         }); */
         this.props.onInitPurchase();
         this.props.history.push('/checkout');
-    }
+    };
 
     render () {
         const disabledInfo = {
@@ -167,7 +167,8 @@ const mapStateToProps = state => {
         price: state.burgerBuilder.totalPrice,
         error: state.burgerBuilder.error
     }
-}
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         onIngredientAdded: (ingName) => dispatch(actions.addIngredient(ingName)),
@@ -175,7 +176,7 @@ const mapDispatchToProps = dispatch => {
         onInitIngredients: () => dispatch(actions.initIngredients()),
         onInitPurchase: () => dispatch(actions.purchaseInit())
     }
-}
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));

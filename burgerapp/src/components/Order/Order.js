@@ -24,7 +24,7 @@ const order = (props) => {
                 padding: '5px'
             }}
     key={ig.name}>{ig.name} ({ig.amount})</span>;
-    })
+    });
 
     return (<div className={classes.Order}>
         <p>Ingredients: {ingredientOutput}</p>  

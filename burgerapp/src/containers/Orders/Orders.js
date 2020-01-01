@@ -54,7 +54,7 @@ const mapStateToProps = state => {
         orders: state.order.orders,
         loading: state.order.loading
     };
-}
+};
 
 const mapDispatchToProps = dispatch => {
     return {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
-import * as actions from '../../store/actions/index';
+// import * as actions from '../../store/actions/index';
 
 class Checkout extends Component { 
     
@@ -31,11 +31,11 @@ class Checkout extends Component {
 
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
-    }
+    };
 
     checkoutContinuedHandler = () => {
         this.props.history.replace('/checkout/contact-data');
-    }
+    };
 
     /*<Route path={this.props.match.path + '/contact-data'}
                     render={ (props) => (<ContactData 
@@ -71,6 +71,6 @@ const mapStateTopProps = state => {
         price: state.burgerBuilder.totalPrice,
         purchased: state.order.purchased
     }
-}
+};
 
 export default connect(mapStateTopProps)( Checkout );

@@ -1,5 +1,5 @@
 import * as actionTypes from './actions';
-import { getStackTraceLines } from 'jest-message-util';
+//import { getStackTraceLines } from 'jest-message-util';
 
 const initialState = {
     ingredients: {
@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
                     [action.ingredientName]: state.ingredients[action.ingredientName] + 1
                 },
                 totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
-            }
+            };
         case actionTypes.REMOVE_INGREDIENT:
             return {
                 ...state,
@@ -37,7 +37,7 @@ const reducer = (state = initialState, action) => {
                     [action.ingredientName]: state.ingredients[action.ingredientName] - 1
                 },
                 totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
-            }
+            };
         default:
             return state;
     }

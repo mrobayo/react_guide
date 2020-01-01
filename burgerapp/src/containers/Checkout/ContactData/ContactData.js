@@ -96,7 +96,7 @@ class ContactData extends Component {
         },
         formIsValid: false,
         loading: false
-    }
+    };
 
     orderHandler = (event) => {
         event.preventDefault();
@@ -122,7 +122,7 @@ class ContactData extends Component {
             
             this.setState({ loading: false, purchasing: false });
         });*/
-    }
+    };
 
     checkValidity = (value, rules) => {
         let isValid = true;
@@ -144,7 +144,7 @@ class ContactData extends Component {
         }
 
         return isValid;
-    }
+    };
 
     inputChangedHandler = (event, inputIdentifier) => {
         const upddateOrderForm = {
@@ -168,7 +168,7 @@ class ContactData extends Component {
 
 
         this.setState({orderForm: upddateOrderForm, formIsValid: formIsValid});
-    }
+    };
 
     render() {
         const formElementArray = [];
@@ -217,7 +217,8 @@ const mapStateTopProps = state => {
         price: state.burgerBuilder.totalPrice,
         loading: state.order.loading
     }
-}
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData))
