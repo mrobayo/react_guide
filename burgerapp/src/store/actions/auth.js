@@ -33,10 +33,11 @@ export const logout = () => {
 };
 
 export const checkAuthTimeout = (expirationTime) => {
-  return dispatch => {
-      setTimeout(()=> {
-          dispatch(logout());
-      }, expirationTime * 1000)
+    console.log('expirationTime: ' + expirationTime);
+    return dispatch => {
+        setTimeout(()=> {
+            dispatch(logout());
+          }, expirationTime * 1000)
   };
 };
 
@@ -46,11 +47,12 @@ export const auth = (email, password, isSignup) => {
         dispatch(authStart());
         const authData = {
             email: email,
-            password: password
+            password: password,
+            returnSecureToken: true
         };
         axios.post(isSignup ? SIGNUP_URL : SIGNIN_URL, authData)
             .then(response => {
-                console.log(response);
+                console.log('response.data', response.data);
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeout(response.data.expiresIn));
             })
@@ -60,4 +62,11 @@ export const auth = (email, password, isSignup) => {
             });
 
     }
+};
+
+export const setAuthRedirectPath = path => {
+  return {
+      type: actionTypes.SET_AUTH_REDIRECT_PATH,
+      path: path
+  }
 };

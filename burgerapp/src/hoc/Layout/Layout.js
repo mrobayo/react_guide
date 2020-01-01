@@ -5,7 +5,7 @@ import Aux from '../Awx/Awx';
 import classes from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
-import * as actions from "../../store/actions";
+//import * as actions from "../../store/actions";
 
 class Layout extends Component {
     state = {
